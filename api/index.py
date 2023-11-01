@@ -9,3 +9,8 @@ def home():
 @app.route('/about')
 def about():
     return 'About'
+
+# create a post request to /convert
+@app.route('/convert', methods=['POST'])
+def convert():
+    return 'Convert'
