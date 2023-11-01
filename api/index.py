@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import request
 
 app = Flask(__name__)
 
@@ -14,7 +15,6 @@ def about():
 @app.route('/convert', methods=['POST'])
 def convert():
     # read body of request   
-
-    body = request.get_json()
-    word = body['word']
-    return word
+    # convert to json
+    jsonObj = request.get_json()
+    return jsonObj['word'].upper()
