@@ -1,5 +1,7 @@
 from flask import Flask
 from flask import request
+# import utils/romanNumerals.py as romanNumerals
+import utils.romanNumerals as romanNumerals
 
 app = Flask(__name__)
 
@@ -17,4 +19,8 @@ def convert():
     # read body of request   
     # convert to json
     jsonObj = request.get_json()
-    return jsonObj['word'].upper()
+    word = jsonObj['word']
+    if romanNumerals.validateRomanNumeral(word):
+        return str(romanNumerals.convertRomanNumeralToArabicNumber(word))
+    else: 
+        return "Invalid Roman Numeral"
