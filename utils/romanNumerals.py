@@ -1,27 +1,36 @@
 import re 
 
 def convertRomanNumeralToArabicNumber(s):
-    roman_values = {
-        'I': 1,
-        'V': 5,
-        'X': 10,
-        'L': 50,
-        'C': 100,
-        'D': 500,
-        'M': 1000
+    # create new function to convert roman numeral to arabic number
+    # return arabic number
+    # use dictionary to map roman numeral to arabic number
+
+    # create dictionary to map roman numeral to arabic number
+    romanToArabic = {
+        "M": 1000,
+        "D": 500, 
+        "C": 100, 
+        "L": 50, 
+        "X": 10, 
+        "V": 5, 
+        "I": 1
     }
-    prev = 0
-    total = 0
-    for c in s:
-        if c not in roman_values:
-            return False
-        val = roman_values[c]
-        if val > prev:
-            total += val - 2 * prev
+
+    # create variable to hold arabic number
+    arabicNumber = 0
+
+    # loop through roman numeral
+    for i in range(len(s)):
+        # check if current roman numeral is less than next roman numeral
+        if i + 1 < len(s) and romanToArabic[s[i]] < romanToArabic[s[i + 1]]:
+            # subtract current roman numeral from arabic number
+            arabicNumber -= romanToArabic[s[i]]
         else:
-            total += val
-        prev = val
-    return True
+            # add current roman numeral to arabic number
+            arabicNumber += romanToArabic[s[i]]
+
+    # return arabic number
+    return arabicNumber
 
 def validateRomanNumeral(s):
     # create new function to validate roman numeral
