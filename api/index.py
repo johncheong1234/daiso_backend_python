@@ -13,4 +13,8 @@ def about():
 # create a post request to /convert
 @app.route('/convert', methods=['POST'])
 def convert():
-    return 'Convert'
+    # read body of request   
+
+    body = request.get_json()
+    word = body['word']
+    return word
