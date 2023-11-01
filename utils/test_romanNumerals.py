@@ -9,6 +9,8 @@ class TestRomanNumerals(unittest.TestCase):
         self.assertEqual(convertRomanNumeralToArabicNumber("IX"), 9)
         self.assertEqual(convertRomanNumeralToArabicNumber("LVIII"), 58)
         self.assertEqual(convertRomanNumeralToArabicNumber("MCMXCIV"), 1994)
+        self.assertEqual(convertRomanNumeralToArabicNumber("IIII"), 4) 
+        self.assertEqual(convertRomanNumeralToArabicNumber("VX"), 5)
 
     def test_validateRomanNumeral(self):
         self.assertTrue(validateRomanNumeral("I"))
