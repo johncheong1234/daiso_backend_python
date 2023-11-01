@@ -36,14 +36,12 @@ def validateRomanNumeral(s):
     # create new function to validate roman numeral
     # return true if valid
     # return false if invalid
-    # use regex to validate
+    
 
     # check if string is empty
     if s == "":
+        # return false
         return False
 
-    # check if string is a valid roman numeral
-    if not re.match(r'^[MDCLXVI]+$', s):
-        return False
-    else: 
-        return True
+    # use regex to validate roman numeral
+    return bool(re.search(r"^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$",s))
